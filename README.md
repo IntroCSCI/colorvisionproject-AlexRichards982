@@ -1,4 +1,4 @@
-# !!!Replace with your unique project name!!!
+# Problematic color detector for .svg
 
 ## Description
 
