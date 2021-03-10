@@ -39,17 +39,17 @@ example.svg
 
 ### Variables and Data Types
 
-There are currently six strings used. First is 'filename' which takes in the user's input for the file they want to open. Next is 'svgcheck' which is a substring of 'filename' consisting of the last four characters. This is used to detect whether the file ends in ".svg" so that the program only proceeds once a valid file name is entered. The last four are involved in the process of checking each line of the file to pick out the colors. The string 'line' stores each line as it is being read, 'subline' and 'colorscan' are each sublines of line which begin right before a color will and contain the rest of line. These two are used to locate the colors, which are stored in 'colorname' and outputted.
+There are currently five strings used. First is 'fileName' which takes in the user's input for the file they want to open. Next is 'svgCheck' which is a substring of 'fileName' consisting of the last four characters. This is used to detect whether the file ends in ".svg" so that the program only proceeds once a valid file name is entered. The last three are involved in the process of checking each line of the file to pick out the colors. The string 'line' stores each line as it is being read, 'colorScan' is a subline of line which begins right before a color will and contain the rest of line. This is used to locate the colors, which are stored in 'colorName' and outputted.
 
 The second variable type is fstream which I use once for 'reader'. This is used to read the input file.
 
-The third variable type is int, and is only used once for 'filel' which stores the length of the string 'filename' so that we can define 'svgcheck' to be the last four characters.
+The third variable type is int, and is only used once for 'fileLength' which stores the length of the string 'fileName' so that we can define 'svgCheck' to be the last four characters.
 
-The final variable type is size_t which is used whenever I detect the position of a word or character in 'line'. First is 'position' which stores the position of "stroke" or "fill" which always proceed a color. Then is 'subposition' which detects when a color name has ended. I use size_t as it can have a null value that indicates there is no instance of a particular word.
+The final variable type is size_t which is used whenever I detect the position of a word or character in 'line'. First is 'colorDefStart' which stores the position of "stroke" or "fill" which always proceed a color. Finally is 'colorDefEnd' which detects when a color name has ended. I use size_t as it can have a null value that indicates there is no instance of a particular word.
 
 ### Console Input and Output
 
-When run, the program prompts the user for a filename and will run when the user enters the name of a .svg file. If this file can't be found, the program will exist, but if it is not a .svg file the program will ask again. (TODO: make these two errors result in the same action from program)
+When run, the program prompts the user for a fileName and will run when the user enters the name of a .svg file. If this file can't be found, the program will exist, but if it is not a .svg file the program will ask again. (TODO: make these two errors result in the same action from program)
 
 The program will output to the console, line by line, each color found in the file. In the future it will ignore greyscale colors and colors like 'none'.
 

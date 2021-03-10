@@ -1,78 +1,82 @@
-//Author: PUT YOUR NAME HERE
+//Author: Alex Richards
 #include <iostream>
 #include <fstream>
 using namespace std;
 
 int main()
 {
-  string filename;
-  fstream reader;
-  string line;
-  string subline;
-  int filel;
-  string svgcheck;
-  size_t position;
-  size_t subposition;
-  string colorscan;
-  string colorname;
-  //get user input...
+  string fileName;
+  int fileLength;
+  string svgCheck;
 
+  //get user input...
   do {
     cout << "Please enter the svg file to be opened:\n";
-    cin >> filename;
-    filel = filename.length();
-    svgcheck = filename.substr(filel-4,4);
-  }while(svgcheck!=".svg");
+    cin >> fileName;
+    fileLength = fileName.length();
+    svgCheck = fileName.substr(fileLength-4,4);
+  }while(svgCheck!=".svg");
 
   //try to open the file...
-  reader.open(filename, ios::in | ios::out );
+  fstream reader;
+  reader.open(fileName, ios::in | ios::out );
   
   if( reader.is_open() ){
+    string line;
+    string colorScan;
+    size_t colorDefStart;
+    size_t colorDefEnd;
+    string colorName;
+    
     while( !reader.eof() ){
       getline(reader,line);
       //detect colors after 'stroke'
-      position = line.find("stroke");
-      subline = line.substr(position+6); //iteratively decreasing substring so that multiple colors can be detected in one line
-      while(position != string::npos && position < line.length()) {
-        if(subline[0]=='='){
-          colorscan = subline.substr(2);
-          subposition = colorscan.find("\"");
-          colorname = colorscan.substr(0,subposition);
-          cout << colorname << endl;
+      colorDefStart = line.find("stroke");
+      colorScan = line.substr(colorDefStart+6);       //iteratively decreasing substring so that multiple colors can be detected in one line
+
+      while(colorDefStart != string::npos && colorDefStart < line.length()) {
+        if(colorScan[0]=='='){
+          colorScan = colorScan.substr(2);
+          colorDefEnd = colorScan.find("\"");
+          colorName = colorScan.substr(0,colorDefEnd);
+          cout << colorName << endl;
         }
-        else if(subline[0]==':'){
-          colorscan = subline.substr(2);
-          subposition = colorscan.find(";");
-          colorname = colorscan.substr(0,subposition);
-          cout << colorname << endl;
+        else if(colorScan[0]==':'){
+          colorScan = colorScan.substr(2);
+          colorDefEnd = colorScan.find(";");
+          colorName = colorScan.substr(0,colorDefEnd);
+          cout << colorName << endl;
         }
         else{
           break;
         }
-        position = subline.find("stroke");
-        subline = subline.substr(position+6);
+        
+        colorDefStart = colorScan.find("stroke");
+        colorScan = colorScan.substr(colorDefStart+6);
       }
       //detect colors after 'fill'
-      position = line.find("fill");
-      subline = line.substr(position+4); //iteratively decreasing substring so that multiple colors can be detected in one line
-      while(position != string::npos && position < line.length()) {
-        if(subline[0]=='='){
-          colorscan = subline.substr(2);
-          subposition = colorscan.find("\"");
-          colorname = colorscan.substr(0,subposition);
-          cout << colorname << endl;
+      colorDefStart = line.find("fill");
+      colorScan = line.substr(colorDefStart+4);       //iteratively decreasing substring so that multiple colors can be detected in one line
+
+      while(colorDefStart != string::npos && colorDefStart < line.length()) {
+        if(colorScan[0]=='='){
+          colorScan = colorScan.substr(2);
+          colorDefEnd = colorScan.find("\"");
+          colorName = colorScan.substr(0,colorDefEnd);
+          cout << colorName << endl;
         }
-        else if(subline[0]==':'){
-          colorscan = subline.substr(2);
-          subposition = colorscan.find(";");
-          colorname = colorscan.substr(0,subposition);
-          cout << colorname << endl;
+        else if(colorScan[0]==':'){
+          colorScan = colorScan.substr(2);
+          colorDefEnd = colorScan.find(";");
+          colorName = colorScan.substr(0,colorDefEnd);
+          cout << colorName << endl;
         }
         else{
           break;
         }
-        position = subline.find("fill");
-        subline = subline.substr(position+4);
+
+        colorDefStart = colorScan.find("fill");
+        colorScan = colorScan.substr(colorDefStart+4);
       }
     }
     reader.close();
@@ -80,7 +84,7 @@ int main()
 
   //display an error if it doesn't open, or display the file's contents if it does
   else{
-    cout << "Could not open " << filename << endl;
+    cout << "Could not open " << fileName << endl;
   }
 
 
