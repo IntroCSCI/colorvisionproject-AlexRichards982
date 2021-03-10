@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:svg="http://www.w3.org/2000/svg" id="svg2" viewBox="0 0 128 128" version="1.1">
+  <defs id="defs4">
+    <linearGradient id="linearGradient3885" y2="483.87" gradientUnits="userSpaceOnUse" x2="392.31" gradientTransform="matrix(.25220 0 0 .25147 -33.153 842.35)" y1="368.19" x1="389.62">
+      <stop id="stop4007" stop-color="#fff" offset="0"/>
+      <stop id="stop4009" stop-color="#fff" stop-opacity="0" offset="1"/>
+    </linearGradient>
+    <linearGradient id="linearGradient3895" y2="727.22" gradientUnits="userSpaceOnUse" x2="379.84" gradientTransform="matrix(.25791 0 0 .25791 -35.356 838.89)" y1="436.24" x1="381.83">
+      <stop id="stop3870" stop-color="#436298" offset="0"/>
+      <stop id="stop3872" stop-color="#293c5c" offset="1"/>
+    </linearGradient>
+  </defs>
+  <g id="layer1" transform="translate(0 -924.36)">
+    <rect id="rect3071" ry="11.854" height="117.03" width="117.03" stroke="#192538" stroke-linecap="round" y="929.85" x="5.4872" stroke-width="1.4795" fill="url(#linearGradient3895)"/>
+    <g id="g3138" fill-rule="evenodd" transform="matrix(.12938 0 0 .12938 16.733 955.46)">
+      <rect id="rect911" transform="rotate(15.118)" rx="2.926" ry="2.926" height="363.28" width="363.28" stroke="#fff" y="-78.837" x="363.42" stroke-width="14.789" fill="#fff"/>
+      <rect id="rect912" transform="rotate(15.118)" rx="2.3237" ry="2.3237" height="288.5" width="288.5" y="-39.355" x="398.73" stroke-width=".79413pt" fill="#f3e533"/>
+      <rect id="rect913" rx="2.926" ry="2.926" height="363.28" width="363.28" stroke="#fff" y="30.531" x="192.48" stroke-width="14.789" fill="#fff"/>
+      <rect id="rect914" rx="2.3237" ry="2.3237" height="288.5" width="288.5" y="70.014" x="227.78" stroke-width=".79413pt" fill="#ff7f00"/>
+      <rect id="rect915" transform="matrix(.942 -.33560 .33560 .942 0 0)" rx="2.926" ry="2.926" height="363.28" width="363.28" stroke="#fff" y="142.2" x="-41.716" stroke-width="14.789" fill="#fff"/>
+      <rect id="rect916" transform="matrix(.942 -.33560 .33560 .942 0 0)" rx="2.3237" ry="2.3237" height="288.49" width="288.49" y="181.69" x="-6.4091" stroke-width=".79413pt" fill="#bf0000"/>
+    </g>
+    <path id="rect4002" opacity=".6" d="m8.1349 962.97v-19.803c0-5.9728 5.0474-10.781 11.317-10.781h89.096c6.2697 0 11.317 4.8085 11.317 10.781v19.803" stroke="url(#linearGradient3885)" stroke-linecap="round" stroke-width="2" fill="none"/>
+    <path id="path3095" d="m17.198 974.25 23.333-8.671 0.07242-6.8872 19.881 0.10059 1.7382-1.073 0.96568 0.59014 1.4485-1.6765 7.1461 2.6556 18.227-0.42249 0.09656 5.5057 20.81 5.5594" stroke="#000" stroke-width="1.48" fill="none"/>
+  </g>
+  <metadata>
+    <rdf:RDF>
+      <cc:Work>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+        <cc:license rdf:resource="http://creativecommons.org/licenses/publicdomain/"/>
+        <dc:publisher>
+          <cc:Agent rdf:about="http://openclipart.org/">
+            <dc:title>Openclipart</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:title>Openclipart.org Social Icon</dc:title>
+        <dc:date>2012-06-24T20:48:04</dc:date>
+        <dc:description>clip art, clipart, icon, openclipart, social, </dc:description>
+        <dc:source>http://openclipart.org/detail/170897/openclipart.org-social-icon-by-ghosthand-170897</dc:source>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>ghosthand</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>clip art</rdf:li>
+            <rdf:li>clipart</rdf:li>
+            <rdf:li>icon</rdf:li>
+            <rdf:li>openclipart</rdf:li>
+            <rdf:li>social</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+      </cc:Work>
+      <cc:License rdf:about="http://creativecommons.org/licenses/publicdomain/">
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks"/>
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>
