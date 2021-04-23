@@ -6,12 +6,14 @@ using namespace std;
 
 vector <string> getcolorlist(fstream &);
 void displayVector(const vector <string> &);
+vector <string> createVector();
 vector <string> convertRGBVector(const vector <string> &);
 string convertThreeRGB(const string &);
 bool RGBcheck(const string &);
 bool uniqueItem(const vector <string> &, const string &);
 bool stringEquals(const string &, const string &);
 vector <string> convertHtmlColors(const vector <string> &);
+
 
 int main()
 {
@@ -40,27 +42,16 @@ int main()
     cout << "Could not open " << fileName << endl;
     return 0;
   }
-
+  //if there are no colors in the file, end program
   if(colorList.size()==0){
     cout << "No colors found in " << fileName << endl;
     return 0;
   }
 
-  // displayVector(convertRGBVector(colorList));
-  displayVector(colorList);
-  
-  /*
-  vector <string> colorList;
-  string color;
-  do{
-    cout << "What do you want to do (or quit to end)?\n";
-    getline(cin, color);
-    if(color != "quit"){
-      colorList.push_back(color);
-    }
-  }while(color != "quit");
-  displayVector(convertHtmlColors(colorList));
-  */
+  // displayVector(colorList); 
+  displayVector(convertRGBVector(colorList));
+  // displayVector(convertRGBVector(createVector()));
+
   return 0;
 }
 
@@ -81,15 +72,19 @@ vector <string> getcolorlist(fstream & reader){
         colorScan = line.substr(colorDefStart+6);       //iteratively decreasing substring so that multiple colors can be detected in one line
 
         while(colorDefStart != string::npos && colorDefStart < line.length()) {
-          if(colorScan[0]=='=' || colorScan[0]==':'){
+          if(colorScan[0]=='='){
             colorScan = colorScan.substr(2);
-            colorDefEnd = min(colorScan.find("\""),colorScan.find (";"));
+            colorDefEnd = colorScan.find("\"");
             colorName = colorScan.substr(0,colorDefEnd);
             //cout << colorName << endl;
             colorList.push_back(colorName);
           }
-          else{
-            break;
+          else if(colorScan[0]==':'){
+            colorScan = colorScan.substr(1);
+            colorDefEnd = colorScan.find(";");
+            colorName = colorScan.substr(0,colorDefEnd);
+            //cout << colorName << endl;
+            colorList.push_back(colorName);
           }
         
           colorDefStart = colorScan.find("stroke");
@@ -100,15 +95,20 @@ vector <string> getcolorlist(fstream & reader){
         colorScan = line.substr(colorDefStart+4);       //iteratively decreasing substring so that multiple colors can be detected in one line
 
         while(colorDefStart != string::npos && colorDefStart < line.length()) {
-          if(colorScan[0]=='=' || colorScan[0]==':'){
+          // cout << colorScan << endl;
+          if(colorScan[0]=='='){
             colorScan = colorScan.substr(2);
-            colorDefEnd = min(colorScan.find("\""),colorScan.find(";"));
+            colorDefEnd = colorScan.find("\"");
             colorName = colorScan.substr(0,colorDefEnd);
             //cout << colorName << endl;
             colorList.push_back(colorName);
           }
-          else{
-            break;
+          else if(colorScan[0]==':'){
+            colorScan = colorScan.substr(1);
+            colorDefEnd = colorScan.find(";");
+            colorName = colorScan.substr(0,colorDefEnd);
+            //cout << colorName << endl;
+            colorList.push_back(colorName);
           }
 
           colorDefStart = colorScan.find("fill");
@@ -131,7 +131,22 @@ void displayVector(const vector <string> & list){
   return;
 }
 
+vector <string> createVector(){
+  vector <string> colorList;
+  string color;
+  do{
+    cout << "Please enter an html color to convert to rgb (or quit to end)\n";
+    getline(cin, color);
+    if(color != "quit"){
+      colorList.push_back(color);
+    }
+  }while(color != "quit");
+  return colorList;
+}
+
+
 vector <string> convertRGBVector(const vector <string> & colorList){
+  // input a list of strings with 6 or 3 character RGB codes, html colors, or other and output a list of the 6 character RGB codes without repeats that correspond to those when applicable.
   vector <string> RGBList;
   vector <string> HtmlColorList;
   string newRGB;
@@ -219,6 +234,7 @@ bool stringEquals(const string & a, const string & b){
 }
 
 vector <string> convertHtmlColors(const vector <string> & colorNameList){
+  // take a list of strings, and for each html color named in the string output its corresponding RGB color. Requires Colorlist.csv.
   vector <string> colorRGB;
   fstream reader;
   string line;
